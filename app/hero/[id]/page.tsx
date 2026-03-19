@@ -40,7 +40,7 @@ export default async function HeroDetail({ params }: { params: Promise<{ id: str
     `)
     .eq('hero_id', id)
 
-  let buildItems: Record<string, any[]> = {}
+  const buildItems: Record<string, any[]> = {}
   if (builds) {
     for (const build of builds) {
       const { data: items } = await supabase
