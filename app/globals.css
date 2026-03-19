@@ -1,22 +1,70 @@
 @import "tailwindcss";
 
-:root {
-  --bg-primary: #0B0E14;
-  --bg-surface: #161B22;
-  --accent-cyan: #00F5FF;
-  --accent-gold: #FFD700;
-  --text-primary: #E6EDF3;
-  --text-secondary: #8B949E;
+@layer base {
+  :root {
+    --bg-primary: #0B0E14;
+    --bg-surface: #161B22;
+    --accent-cyan: #00F5FF;
+    --accent-gold: #FFD700;
+    --text-primary: #E6EDF3;
+    --text-secondary: #8B949E;
+    --border: #21262D;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
 }
 
-body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: system-ui, -apple-system, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+@layer components {
+  .hero-card {
+    background-color: var(--bg-surface);
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
 
-* {
-  box-sizing: border-box;
+  .hero-card:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .role-btn:hover {
+    border-color: var(--accent-cyan) !important;
+    color: var(--accent-cyan) !important;
+  }
+
+  .search-input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 12px rgba(0, 245, 255, 0.1);
+  }
+
+  .nav-link {
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover {
+    color: var(--accent-cyan) !important;
+  }
+
+  .info-card {
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .info-card:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 16px rgba(0, 245, 255, 0.1);
+  }
 }

@@ -1,7 +1,7 @@
-import { supabase } from '../lib/supabase'
-import HeroSearch from './components/HeroSearch'
+import { supabase } from '../../lib/supabase'
+import HeroRepository from '../components/HeroRepository'
 
-export default async function Home() {
+export default async function HeroesPage() {
   const { data: heroes } = await supabase
     .from('heroes')
     .select('id, name, primary_role, secondary_role')
@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <main style={{ padding: '32px 24px', maxWidth: '1200px', margin: '0 auto' }}>
-      <HeroSearch heroes={heroes || []} />
+      <HeroRepository heroes={heroes || []} />
     </main>
   )
 }

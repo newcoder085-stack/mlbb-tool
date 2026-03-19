@@ -58,7 +58,7 @@ export default async function HeroDetail({ params }: { params: Promise<{ id: str
 
   return (
     <main style={{ padding: '32px 24px', maxWidth: '900px', margin: '0 auto' }}>
-      <Link href="/" style={{ color: '#8B949E', textDecoration: 'none', fontSize: '14px' }}>
+      <Link href="/" className="nav-link" style={{ color: '#8B949E', textDecoration: 'none', fontSize: '14px' }}>
         ← Back to Home
       </Link>
 
@@ -99,7 +99,7 @@ export default async function HeroDetail({ params }: { params: Promise<{ id: str
         {counters && counters.length > 0 ? (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {counters.map((c: any, i: number) => (
-              <div key={i} style={{
+              <div key={i} className="info-card" style={{
                 backgroundColor: '#161B22', borderRadius: '12px', padding: '16px',
                 border: '1px solid #21262D',
               }}>
@@ -131,7 +131,7 @@ export default async function HeroDetail({ params }: { params: Promise<{ id: str
         {builds && builds.length > 0 ? (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {builds.map((build: any) => (
-              <div key={build.id} style={{
+              <div key={build.id} className="info-card" style={{
                 backgroundColor: '#161B22', borderRadius: '12px', padding: '20px',
                 border: '1px solid #21262D',
               }}>

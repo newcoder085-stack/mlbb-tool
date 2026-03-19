@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <header style={{
           display: 'flex',
@@ -22,12 +22,14 @@ export default function RootLayout({
           backgroundColor: '#161B22',
           borderBottom: '1px solid #21262D',
         }}>
-          <h1 style={{ fontSize: '20px', fontWeight: 700, color: '#00F5FF', margin: 0 }}>
-            MLBB Strategic Companion
-          </h1>
+          <Link href="/" style={{ textDecoration: 'none' }}>
+            <h1 style={{ fontSize: '20px', fontWeight: 700, color: '#00F5FF', margin: 0 }}>
+              MLBB Strategic Companion
+            </h1>
+          </Link>
           <nav style={{ display: 'flex', gap: '24px' }}>
-            <Link href="/" style={{ color: '#E6EDF3', textDecoration: 'none', fontSize: '14px' }}>Home</Link>
-            <Link href="/heroes" style={{ color: '#8B949E', textDecoration: 'none', fontSize: '14px' }}>Heroes</Link>
+            <Link href="/" className="nav-link" style={{ color: '#E6EDF3', textDecoration: 'none', fontSize: '14px' }}>Home</Link>
+            <Link href="/heroes" className="nav-link" style={{ color: '#8B949E', textDecoration: 'none', fontSize: '14px' }}>Heroes</Link>
           </nav>
         </header>
         {children}
