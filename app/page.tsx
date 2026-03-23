@@ -4,7 +4,7 @@ import HeroSearch from './components/HeroSearch'
 export default async function Home() {
   const { data: heroes } = await supabase
     .from('heroes')
-    .select('id, name, primary_role, secondary_role')
+    .select('hero_id, name, roles, icon_url')
     .order('name')
 
   return (

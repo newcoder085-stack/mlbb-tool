@@ -4,10 +4,10 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 type Hero = {
-  id: string
+  hero_id: number
   name: string
-  primary_role: string
-  secondary_role: string | null
+  roles: string[]
+  icon_url: string | null
 }
 
 export default function HeroSearch({ heroes }: { heroes: Hero[] }) {
@@ -62,11 +62,11 @@ export default function HeroSearch({ heroes }: { heroes: Hero[] }) {
         }}>
           {filtered.map((hero) => (
             <Link
-              key={hero.id}
-              href={`/hero/${hero.id}`}
+              key={hero.hero_id}
+              href={`/hero/${hero.hero_id}`}
               style={{ textDecoration: 'none' }}
             >
-               <div className="hero-card">
+              <div className="hero-card">
                 <div style={{
                   width: '64px',
                   height: '64px',
@@ -76,16 +76,25 @@ export default function HeroSearch({ heroes }: { heroes: Hero[] }) {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: '24px',
-                  color: '#00F5FF',
+                  overflow: 'hidden',
                 }}>
-                  {hero.name.charAt(0)}
+                  {hero.icon_url ? (
+                    <img
+                      src={hero.icon_url}
+                      alt={hero.name}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  ) : (
+                    <span style={{ fontSize: '24px', color: '#00F5FF' }}>
+                      {hero.name.charAt(0)}
+                    </span>
+                  )}
                 </div>
                 <p style={{ fontSize: '14px', fontWeight: 600, color: '#E6EDF3', margin: '0 0 4px' }}>
                   {hero.name}
                 </p>
                 <p style={{ fontSize: '12px', color: '#8B949E', margin: 0 }}>
-                  {hero.primary_role}{hero.secondary_role ? ` / ${hero.secondary_role}` : ''}
+                  {hero.roles.join(' / ')}
                 </p>
               </div>
             </Link>
